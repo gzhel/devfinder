@@ -34,5 +34,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "eslint": "^8.22.0",
+    "eslint-plugin-react": "^7.30.1",
+    "prettier": "2.7.1"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/gzhel/github-user-search.git",
+  "author": "gzhel <gregoryzhel@gmail.com>",
+  "license": "MIT"
 }
