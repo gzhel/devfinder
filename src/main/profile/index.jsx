@@ -15,14 +15,14 @@ const ContactCell = (p) => {
         className={cls(s.text, s.contactText, { [s.disabled]: !field })}
         rel="noreferrer"
       >
-        {!field ? 'Not available' : field}
+        {!field ? 'Not available' : field.length > 25 ? field.slice(0, 25) + '...' : field}
       </a>
     );
   }
 
   return (
     <span className={cls(s.text, s.contactText, { [s.disabled]: !field })}>
-      {!field ? 'Not available' : field}
+      {!field ? 'Not available' : field.length > 25 ? field.slice(0, 25) + '...' : field}
     </span>
   );
 };
@@ -43,7 +43,7 @@ export const Profile = (p) => {
       <div className={s.infoLayout}>
         <div className={s.row}>
           <span className={s.fullName}>{data.name}</span>
-          <span className={s.text}>Joined {moment(data.created_at).format('MMM Do YY')}</span>
+          <span className={s.text}>Joined {moment(data.created_at).format('MMM Do YYYY')}</span>
         </div>
 
         <div className={s.row}>
