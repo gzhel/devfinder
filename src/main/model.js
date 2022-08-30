@@ -30,6 +30,7 @@ export const useModel = () => {
       const val = evt.target.value;
       setSearchValue(val);
       if (!!val) url.searchParams.append('user', val);
+      if (!val) setProfileData(profileInitial);
       history.replaceState({}, '', `${url.origin}/${url.search}`);
     },
     [searchValue]
@@ -46,7 +47,7 @@ export const useModel = () => {
         });
         await setProfileData(resp.data);
       } catch (error) {
-        console.error(error);
+        alert(`${error.code}: Current user doesn't exist!`);
       }
       setLockUI(false);
     },

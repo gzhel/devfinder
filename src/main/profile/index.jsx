@@ -5,7 +5,21 @@ import cls from 'classnames';
 import moment from 'moment';
 
 const ContactCell = (p) => {
-  const { field } = p;
+  const { field, link } = p;
+
+  if (link) {
+    return (
+      <a
+        href={link}
+        target="_blank"
+        className={cls(s.text, s.contactText, { [s.disabled]: !field })}
+        rel="noreferrer"
+      >
+        {!field ? 'Not available' : field}
+      </a>
+    );
+  }
+
   return (
     <span className={cls(s.text, s.contactText, { [s.disabled]: !field })}>
       {!field ? 'Not available' : field}
@@ -82,12 +96,18 @@ export const Profile = (p) => {
               size="1.8em"
               color={`rgba(255, 255, 255, ${!data?.twitter_username ? 0.5 : 1})`}
             />
-            <ContactCell field={data.twitter_username} />
+            <ContactCell
+              field={data.twitter_username ? `@${data.twitter_username}` : null}
+              link={data.twitter_username ? `https://twitter.com/${data.twitter_username}` : null}
+            />
           </div>
 
           <div className={s.contact}>
             <Icons.UilLink size="1.8em" color={`rgba(255, 255, 255, ${!data?.blog ? 0.5 : 1})`} />
-            <ContactCell field={data.blog} />
+            <ContactCell
+              field={data.blog?.length > 25 ? data.blog.slice(0, 25) + '...' : data.blog}
+              link={data.blog}
+            />
           </div>
 
           <div className={s.contact}>
