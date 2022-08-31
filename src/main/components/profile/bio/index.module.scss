@@ -19,10 +19,18 @@
   font-size: 16px;
   line-height: 24px;
   color: var(--profile-bio-placeholder);
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .bio {
   font-size: 16px;
   line-height: 24px;
   color: var(--profile-bio-bio);
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }

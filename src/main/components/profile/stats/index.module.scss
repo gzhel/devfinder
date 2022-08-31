@@ -20,12 +20,26 @@
   background-color: var(--profile-stats-bg);
   border-radius: 10px;
   display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .stat {
   width: 33%;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .stat span {
@@ -33,10 +47,18 @@
     color: var(--profile-stats-title);
     font-size: 16px;
     margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
   &:last-child {
     color: var(--profile-stats-text);
     font-size: 24px;
     font-weight: bold;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 }

@@ -26,6 +26,10 @@
   margin-bottom: 20px;
   background-color: var(--search-bg);
   box-shadow: var(--search-shadow);
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 }
 
 .icon {
@@ -34,6 +38,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 10%;
+  }
 }
 
 .search {
@@ -56,6 +64,11 @@
     width: 20px;
     content: var(--search-clear-content);
   }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    width: 60%;
+  }
 }
 
 .button {
@@ -73,5 +86,10 @@
   font-size: 16px;
   &:hover {
     background-color: var(--btn-color-hover);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    width: 20%;
   }
 }

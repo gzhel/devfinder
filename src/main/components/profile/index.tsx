@@ -24,7 +24,7 @@ export const Profile = ({ data }: Props) => {
         />
       </div>
 
-      <div className={s.infoLayout}>
+      <div>
         <Title data={data} />
 
         <GitHubLink data={data} />

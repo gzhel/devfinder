@@ -11,6 +11,11 @@
 .row {
   width: 100%;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .placeholder {

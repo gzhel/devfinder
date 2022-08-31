@@ -19,12 +19,23 @@
   box-sizing: border-box;
   display: flex;
   box-shadow: var(--profile-shadow);
+
+  @media (max-width: 768px) {
+    width: 90%;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
 }
 
 .iconLayout {
   width: 20%;
   padding-right: 40px;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-right: unset;
+  }
 }
 
 .icon {
@@ -32,10 +43,8 @@
   height: 115px;
   background-size: 115px;
   border-radius: 50%;
-}
 
-.infoLayout {
-  height: 100%;
-  width: 80%;
-  color: #ffffff;
+  @media (max-width: 768px) {
+    margin: 0 auto 20px auto;
+  }
 }
