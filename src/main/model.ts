@@ -1,5 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
+import { ChangeEventHandler, useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
+import { defaultUser } from './mocks';
+import { extractLocalUser } from './utils';
+import { LocalGithubUser, MockGithubUser } from './types';
 
 export const useModel = () => {
   // config
@@ -7,30 +10,17 @@ export const useModel = () => {
   const [lockUI, setLockUI] = useState(false);
 
   // profile
-  const profileInitial = {
-    avatar_url: 'https://avatars.githubusercontent.com/u/583231?v=4',
-    name: 'User',
-    created_at: new Date(),
-    login: null,
-    bio: null,
-    public_repos: 0,
-    followers: 0,
-    following: 0,
-    location: null,
-    twitter_username: null,
-    blog: null,
-    company: null
-  };
-  const [profileData, setProfileData] = useState(profileInitial);
+  const [profileData, setProfileData] = useState<LocalGithubUser | MockGithubUser>(defaultUser);
 
   // search
   const [searchValue, setSearchValue] = useState('');
-  const handleInput = useCallback(
+  const handleInput: ChangeEventHandler<HTMLInputElement> = useCallback(
     (evt) => {
-      const val = evt.target.value;
+      const target = evt.target as HTMLInputElement;
+      const val = target.value;
       setSearchValue(val);
       if (!!val) url.searchParams.append('user', val);
-      if (!val) setProfileData(profileInitial);
+      if (!val) setProfileData(defaultUser);
       history.replaceState({}, '', `${url.origin}/${url.search}`);
     },
     [searchValue]
@@ -38,15 +28,17 @@ export const useModel = () => {
 
   // api
   const getProfileData = useCallback(
-    async (user) => {
+    async (user: any) => {
       setLockUI(true);
       try {
         const resp = await axios({
           method: 'get',
           url: `https://api.github.com/users/${user}`
         });
-        await setProfileData(resp.data);
+        const profile = await extractLocalUser(resp.data);
+        await setProfileData(profile);
       } catch (error) {
+        // @ts-ignore
         alert(`${error.code}: Current user doesn't exist!`);
       }
       setLockUI(false);
@@ -55,12 +47,15 @@ export const useModel = () => {
   );
 
   useEffect(() => {
-    let queryParams = {};
+    let queryParams = {
+      user: undefined
+    };
     location.search
       .substring(1)
       .split('&')
       .forEach((i) => {
         let param = i.split('=');
+        // @ts-ignore
         queryParams[param[0]] = param[1];
       });
     if (!!queryParams.user) {

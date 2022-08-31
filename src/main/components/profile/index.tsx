@@ -1,10 +1,17 @@
-import React from 'react';
-import s from './index.module.scss';
+// @ts-ignore
 import * as Icons from '@iconscout/react-unicons';
+import React from 'react';
 import cls from 'classnames';
 import moment from 'moment';
+import s from './index.module.scss';
+import { LocalGithubUser, MockGithubUser } from '../../types';
 
-const ContactCell = (p) => {
+type ContactCellProps = {
+  field: string | null;
+  link?: string | null;
+};
+
+const ContactCell = (p: ContactCellProps) => {
   const { field, link } = p;
 
   if (link) {
@@ -27,7 +34,11 @@ const ContactCell = (p) => {
   );
 };
 
-export const Profile = (p) => {
+type ProfileProps = {
+  data: LocalGithubUser | MockGithubUser;
+};
+
+export const Profile = (p: ProfileProps) => {
   const { data } = p;
 
   return (
@@ -36,14 +47,14 @@ export const Profile = (p) => {
         <div
           className={s.icon}
           style={{
-            backgroundImage: `url(${data.avatar_url})`
+            backgroundImage: `url(${data.avatar})`
           }}
         />
       </div>
       <div className={s.infoLayout}>
         <div className={s.row}>
           <span className={s.fullName}>{data.name}</span>
-          <span className={s.text}>Joined {moment(data.created_at).format('MMM Do YYYY')}</span>
+          <span className={s.text}>Joined {moment(data.created).format('MMM Do YYYY')}</span>
         </div>
 
         <div className={s.row}>
@@ -70,7 +81,7 @@ export const Profile = (p) => {
         <div className={s.stats}>
           <div className={s.stat}>
             <span>Repos</span>
-            <span>{data.public_repos}</span>
+            <span>{data.repos}</span>
           </div>
           <div className={s.stat}>
             <span>Followers</span>
@@ -94,18 +105,20 @@ export const Profile = (p) => {
           <div className={s.contact}>
             <Icons.UilTwitter
               size="1.8em"
-              color={`rgba(255, 255, 255, ${!data?.twitter_username ? 0.5 : 1})`}
+              color={`rgba(255, 255, 255, ${!data?.twitter ? 0.5 : 1})`}
             />
             <ContactCell
-              field={data.twitter_username ? `@${data.twitter_username}` : null}
-              link={data.twitter_username ? `https://twitter.com/${data.twitter_username}` : null}
+              field={data.twitter ? `@${data.twitter}` : null}
+              link={data.twitter ? `https://twitter.com/${data.twitter}` : null}
             />
           </div>
 
           <div className={s.contact}>
             <Icons.UilLink size="1.8em" color={`rgba(255, 255, 255, ${!data?.blog ? 0.5 : 1})`} />
             <ContactCell
-              field={data.blog?.length > 25 ? data.blog.slice(0, 25) + '...' : data.blog}
+              field={
+                data.blog && data.blog?.length > 25 ? data.blog.slice(0, 25) + '...' : data.blog
+              }
               link={data.blog}
             />
           </div>

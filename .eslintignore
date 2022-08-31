@@ -1,5 +1,4 @@
 *.css
 *.svg
 build/
-local_modules/
 node_modules/

@@ -1,8 +1,16 @@
-import React from 'react';
-import s from './index.module.scss';
+// @ts-ignore
 import * as Icons from '@iconscout/react-unicons';
+import React, { ChangeEventHandler } from 'react';
+import s from './index.module.scss';
 
-export const Search = (p) => (
+type Props = {
+  searchValue: string;
+  handleInput: ChangeEventHandler<HTMLInputElement>;
+  lockUI: boolean;
+  handleSearch: () => void;
+};
+
+export const Search = (p: Props) => (
   <div className={s.searchLayout}>
     <div className={s.icon}>
       <Icons.UilSearch width="1.4em" height="1.4em" color="#093ede" />

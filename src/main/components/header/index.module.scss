@@ -1,0 +1,38 @@
+:global {
+  body[data-theme='light'] {
+    --logo-color: var(--palette-color-7);
+    --switch-color: var(--palette-color-7);
+  }
+
+  body[data-theme='dark'] {
+    --logo-color: var(--palette-color-2);
+    --switch-color: var(--palette-color-2);
+  }
+}
+
+.header {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--logo-color);
+}
+
+.themeSwitcher {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.themeText {
+  color: var(--switch-color);
+  margin: 0 10px;
+}

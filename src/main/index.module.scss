@@ -1,12 +1,17 @@
-@import 'reset';
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 
-.app {
-  background-color: #1F2A48;
+:global(body) {
+  font-family: 'Space Mono', monospace;
   height: 100vh;
+  background-color: var(--palette-color-2);
+}
+
+:global(body[data-theme='dark']) {
+  background-color: var(--palette-color-7);
+}
+
+.app {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  font-family: 'Ubuntu Mono', monospace;
 }
