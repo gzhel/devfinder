@@ -1,0 +1,29 @@
+:global {
+  body[data-theme='light'] {
+    --profile-github-placeholder: var(--palette-color-7);
+  }
+
+  body[data-theme='dark'] {
+    --profile-github-placeholder: var(--palette-color-1);
+  }
+}
+
+.row {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.placeholder {
+  font-size: 16px;
+  color: var(--profile-github-placeholder);
+}
+
+.link {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--btn-color);
+
+  &:hover {
+    color: var(--btn-color-hover);
+  }
+}

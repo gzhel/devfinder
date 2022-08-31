@@ -1,0 +1,28 @@
+:global {
+  body[data-theme='light'] {
+    --profile-bio-placeholder: var(--palette-color-7);
+    --profile-bio-bio: var(--palette-color-6);
+  }
+
+  body[data-theme='dark'] {
+    --profile-bio-placeholder: var(--palette-color-1);
+    --profile-bio-bio: var(--palette-color-2);
+  }
+}
+
+.row {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.placeholder {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--profile-bio-placeholder);
+}
+
+.bio {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--profile-bio-bio);
+}

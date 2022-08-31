@@ -62,8 +62,8 @@
   font-family: 'Ubuntu Mono', monospace;
   height: 45px;
   width: 15%;
-  color: #ffffff;
-  background-color: #3267ff;
+  color: var(--palette-color-1);
+  background-color: var(--btn-color);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -72,6 +72,6 @@
   border-radius: 10px;
   font-size: 16px;
   &:hover {
-    background-color: darken(#2059ff, 2%);
+    background-color: var(--btn-color-hover);
   }
 }

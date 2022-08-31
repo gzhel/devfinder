@@ -1,11 +1,24 @@
+:global {
+  body[data-theme='light'] {
+    --profile-bg: var(--palette-color-1);
+    --profile-shadow: var(--shadow);
+  }
+
+  body[data-theme='dark'] {
+    --profile-bg: var(--palette-color-6);
+    --profile-shadow: unset;
+  }
+}
+
 .profileLayout {
   height: auto;
   width: 40%;
-  background-color: #314272;
+  background-color: var(--profile-bg);
   border-radius: 10px;
   padding: 40px;
   box-sizing: border-box;
   display: flex;
+  box-shadow: var(--profile-shadow);
 }
 
 .iconLayout {
@@ -25,81 +38,4 @@
   height: 100%;
   width: 80%;
   color: #ffffff;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.fullName {
-  font-size: 28px;
-}
-
-.text {
-  font-size: 18px;
-  color: #c7c7c7;
-}
-
-.githubLink {
-  font-size: 18px;
-  text-decoration: none;
-  color: #3267ff;
-
-  &:hover {
-    color: darken(#2059ff, 2%);
-  }
-}
-
-.stats {
-  margin: 35px 0;
-  padding: 20px;
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #1F2A48;
-  border-radius: 10px;
-  display: flex;
-}
-
-.stat {
-  width: 33%;
-  display: flex;
-  flex-direction: column;
-}
-
-.stat span {
-  &:first-child {
-    color: #c7c7c7;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  &:last-child {
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
-  }
-}
-
-.contacts {
-  width: 100%;
-}
-
-.contact {
-  width: 50%;
-  display: inline-flex;
-  align-items: center;
-  &:first-child {
-    margin-bottom: 30px;
-  }
-}
-
-.disabled {
-  opacity: 0.5;
-}
-
-.contactText {
-  margin-left: 5px;
 }

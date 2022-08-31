@@ -1,0 +1,29 @@
+:global {
+  body[data-theme='light'] {
+    --profile-title-name: var(--palette-color-7);
+    --profile-title-created: var(--palette-color-4);
+  }
+
+  body[data-theme='dark'] {
+    --profile-title-name: var(--palette-color-1);
+    --profile-title-created: var(--palette-color-2);
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.name {
+  font-size: 24px;
+  color: var(--profile-title-name);
+}
+
+.created {
+  font-size: 16px;
+  color: var(--profile-title-created);
+}

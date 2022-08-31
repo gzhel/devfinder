@@ -2,7 +2,7 @@ import { ChangeEventHandler, useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import { defaultUser } from './mocks';
 import { extractLocalUser } from './utils';
-import { LocalGithubUser, MockGithubUser } from './types';
+import { LocalGithubUser } from './types';
 
 export const useModel = () => {
   // config
@@ -10,7 +10,7 @@ export const useModel = () => {
   const [lockUI, setLockUI] = useState(false);
 
   // profile
-  const [profileData, setProfileData] = useState<LocalGithubUser | MockGithubUser>(defaultUser);
+  const [profileData, setProfileData] = useState<LocalGithubUser>(defaultUser);
 
   // search
   const [searchValue, setSearchValue] = useState('');

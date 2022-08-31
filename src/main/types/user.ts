@@ -13,20 +13,22 @@ export type MockGithubUser = {
   created: null;
 };
 
-export type LocalGithubUser = {
-  login: string;
-  avatar: string;
-  name: string;
-  company: string;
-  blog: string;
-  location: string;
-  bio: string;
-  twitter: string;
-  repos: number;
-  followers: number;
-  following: number;
-  created: string;
-};
+export type LocalGithubUser =
+  | {
+      login: string;
+      avatar: string;
+      name: string;
+      company: string;
+      blog: string;
+      location: string;
+      bio: string;
+      twitter: string;
+      repos: number;
+      followers: number;
+      following: number;
+      created: string;
+    }
+  | MockGithubUser;
 
 export type GithubUser = {
   id: number;
