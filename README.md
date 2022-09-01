@@ -3,7 +3,7 @@
 ## Table of contents
 
 - [Overview](#overview)
-    - [The challenge](#the-challenge)
+    - [Core features](#core-features)
     - [Links](#links)
 - [Built with](#built-with)
 - [Author](#author)
@@ -11,13 +11,13 @@
 
 ## Overview
 
-### The challenge
+### Core features
 
-Users should be able to:
-
-- WIP
-- WIP
-- WIP
+- Switching between light and dark themes
+- Saving the site theme thanks to localStorage
+- User search via GitHub API
+- Saving the search string via URLSearchParams
+- Adaptive layout for desktop and mobile
 
 ### Links
 

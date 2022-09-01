@@ -8,9 +8,9 @@ export const Header = () => {
   const m = useModel();
 
   return (
-    <header onClick={() => m.setDark(!m.isDark)} className={s.header}>
+    <header className={s.header}>
       <div className={s.logo}>devfinder</div>
-      <div className={s.themeSwitcher}>
+      <div className={s.themeSwitcher} onClick={() => m.setDark(!m.isDark)}>
         <span className={s.themeText}>{m.themeText}</span>
         {m.isDark ? (
           <Icons.UilSun width="1.4em" height="1.4em" color="var(--palette-color-2)" />
