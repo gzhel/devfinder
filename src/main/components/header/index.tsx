@@ -8,7 +8,7 @@ export const Header = () => {
   const m = useModel();
 
   return (
-    <div onClick={() => m.setDark(!m.isDark)} className={s.header}>
+    <header onClick={() => m.setDark(!m.isDark)} className={s.header}>
       <div className={s.logo}>devfinder</div>
       <div className={s.themeSwitcher}>
         <span className={s.themeText}>{m.themeText}</span>
@@ -18,6 +18,6 @@ export const Header = () => {
           <Icons.UilMoon width="1.4em" height="1.4em" color="var(--palette-color-7)" />
         )}
       </div>
-    </div>
+    </header>
   );
 };

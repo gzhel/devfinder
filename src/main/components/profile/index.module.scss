@@ -12,7 +12,7 @@
 
 .profileLayout {
   height: auto;
-  width: 40%;
+  width: 100%;
   background-color: var(--profile-bg);
   border-radius: 10px;
   padding: 40px;
@@ -21,7 +21,6 @@
   box-shadow: var(--profile-shadow);
 
   @media (max-width: 768px) {
-    width: 90%;
     flex-direction: column;
     margin-bottom: 20px;
   }

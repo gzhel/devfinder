@@ -6,6 +6,7 @@ import './styles/theme.scss';
 import './styles/reset.scss';
 import s from './index.module.scss';
 import { Header } from './components/header';
+import { Footer } from './components/footer';
 
 export const App = () => {
   const m = useModel();
@@ -13,13 +14,17 @@ export const App = () => {
   return (
     <div className={s.app}>
       <Header />
-      <Search
-        searchValue={m.searchValue}
-        handleInput={m.handleInput}
-        handleSearch={m.handleSearch}
-        lockUI={m.lockUI}
-      />
-      <Profile data={m.profileData} />
+      <div className={s.content}>
+        <Search
+          searchValue={m.searchValue}
+          handleInput={m.handleInput}
+          handleSearch={m.handleSearch}
+          lockUI={m.lockUI}
+          existError={m.existError}
+        />
+        <Profile data={m.profileData} />
+      </div>
+      <Footer />
     </div>
   );
 };

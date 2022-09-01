@@ -1,0 +1,33 @@
+:global {
+  body[data-theme='light'] {
+    --text-color: var(--palette-color-7);
+  }
+
+  body[data-theme='dark'] {
+    --text-color: var(--palette-color-2);
+  }
+}
+
+.footer {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 0 0 auto;
+  padding-bottom: 20px;
+  color: var(--text-color);
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: var(--btn-color);
+
+  &:hover {
+    color: var(--btn-color-hover);
+  }
+}

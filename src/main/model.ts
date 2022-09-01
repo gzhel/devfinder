@@ -8,6 +8,7 @@ export const useModel = () => {
   // config
   const url = new URL(location.origin);
   const [lockUI, setLockUI] = useState(false);
+  const [existError, setExistError] = useState('');
 
   // profile
   const [profileData, setProfileData] = useState<LocalGithubUser>(defaultUser);
@@ -19,7 +20,7 @@ export const useModel = () => {
       const target = evt.target as HTMLInputElement;
       const val = target.value;
       setSearchValue(val);
-      if (!!val) url.searchParams.append('user', val);
+      if (!!val) url.searchParams.append('user', val.toLowerCase());
       if (!val) setProfileData(defaultUser);
       history.replaceState({}, '', `${url.origin}/${url.search}`);
     },
@@ -38,8 +39,10 @@ export const useModel = () => {
         const profile = await extractLocalUser(resp.data);
         await setProfileData(profile);
       } catch (error) {
-        // @ts-ignore
-        alert(`${error.code}: Current user doesn't exist!`);
+        setProfileData(defaultUser);
+        setSearchValue('');
+        setExistError('Current user does not exist');
+        history.replaceState({}, '', url.origin);
       }
       setLockUI(false);
     },
@@ -73,6 +76,7 @@ export const useModel = () => {
     handleInput,
     handleSearch,
     profileData,
-    lockUI
+    lockUI,
+    existError
   };
 };
