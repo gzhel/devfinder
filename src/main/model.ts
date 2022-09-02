@@ -41,7 +41,7 @@ export const useModel = () => {
       } catch (error) {
         setProfileData(defaultUser);
         setSearchValue('');
-        setExistError('Current user does not exist');
+        setExistError("The user doesn't exist");
         history.replaceState({}, '', url.origin);
       }
       setLockUI(false);
