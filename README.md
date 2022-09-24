@@ -28,7 +28,7 @@
 ## Built with
 
 - TypeScript
-- [React](https://reactjs.org/)
+- React
 - SCSS
 - CSS Flex
 - CSS variables
